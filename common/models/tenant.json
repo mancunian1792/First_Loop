@@ -1,0 +1,35 @@
+{
+  "name": "tenant",
+  "plural": "tenants",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "name": {
+      "type": "string"
+    },
+    "companyname": {
+      "type": "string"
+    },
+    "url": {
+      "type": "string"
+    },
+    "createdat": {
+      "type": "date",
+      "defaultFn": "now"
+    },
+    "updatedat": {
+      "type": "date",
+      "defaultFn": "now"
+    },
+    "tenantrequestid": {
+      "type": "number"
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [],
+  "methods": {}
+}
