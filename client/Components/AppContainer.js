@@ -1,5 +1,6 @@
 var React=require('react')
 import Navbar from "./Navbar"
+import Footer from "./Footer"
 
 export default class AppContainer extends React.Component{
 
@@ -10,11 +11,16 @@ return(
 
 
 
-  <div>
-     <Navbar />
-     <div>
+  <div className="col s12">
+     <Navbar className="row" />
+     <main>
+     <div className="container">
           {this.props.children}
+
+
      </div>
+     </main>
+     <Footer className="row"/>
   </div>
 
 );

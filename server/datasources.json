@@ -12,5 +12,15 @@
     "name": "pipecandym",
     "user": "postgres",
     "connector": "postgresql"
+  },
+  "TimeBlog": {
+    "host": "localhost",
+    "port": 5432,
+    "url": "postgres://postgres:postgres@localhost/TimeBlog",
+    "database": "TimeBlog",
+    "password": "postgres",
+    "name": "TimeBlog",
+    "user": "postgres",
+    "connector": "postgresql"
   }
 }

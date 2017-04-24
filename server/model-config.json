@@ -49,5 +49,17 @@
   "tenant": {
     "dataSource": "pipecandym",
     "public": true
+  },
+  "blog_entries": {
+    "dataSource": "TimeBlog",
+    "public": true
+  },
+  "contact": {
+    "dataSource": "TimeBlog",
+    "public": true
+  },
+  "user": {
+    "dataSource": "TimeBlog",
+    "public": true
   }
 }
