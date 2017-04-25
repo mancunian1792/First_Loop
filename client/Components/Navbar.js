@@ -13,10 +13,7 @@ return(
     <ul className="left hide-on-med-and-down">
             <li><Link to="allItems" activeClassName="active"
             className="side-nav-btn">Home</Link></li>
-            <li><Link to="createRole"
-            className="side-nav-btn">Create Role</Link></li>
-            <li><Link to="tenant"
-            className="side-nav-btn">Timesheet</Link></li>
+            <li><Link to = "timesheet" className="side-nav-btn">Timesheet</Link></li>
 
     </ul>
   </div>
