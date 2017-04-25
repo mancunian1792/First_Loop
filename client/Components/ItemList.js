@@ -5,16 +5,16 @@
 
 var React = require('react');
 var ItemListHeader = require('./ItemListHeader');
-var ContactModal = require('./ContactModal')
-var ContactList = require('./ContactList')
+var BlogModal = require('./BlogModal')
+var BlogList = require('./BlogList')
 var CMStore = require('../Stores/CMStore')
 var CMActions = require('../Actions/CMAction')
-var EditContactModal = require('./EditContactModal')
+var EditBlogModal = require('./EditBlogModal')
 
-function getContactsState() {
+function getBlogsState() {
   return {
-    allContacts: CMStore.getAll(),
-    editContact: CMStore.getEditContact()
+    allBlogs: CMStore.getAll(),
+    editBlog: CMStore.getEditContact()
   };
 }
 
@@ -22,8 +22,8 @@ var ItemList = React.createClass({
 
 	getInitialState: function() {
     // loading existing data
-    this._initializeContacts();
-    return getContactsState();
+    this._initializeBlogs();
+    return getBlogsState();
   },
   componentDidMount: function() {
 		CMStore.addChangeListener(this._onChange);
@@ -35,52 +35,52 @@ var ItemList = React.createClass({
 	render: function() {
 
 		//Code for editing a contact
-		var editId = this.state.editContact.id;
-	    var editContact = this.state.editContact;
+		var editId = this.state.editBlog.id;
+	    var editBlog = this.state.editBlog;
 	    if (editId !== undefined) {
 				console.log("This should be printed ideally when the edit button is clicked :::::");
-				$('#edit_contact_modal').modal();
-	      $('#edit_contact_modal').modal('open');
+				$('#edit_blog_modal').modal();
+	      $('#edit_blog_modal').modal('open');
 
 	      // fill form elements with selected contact info
-	      $('#edit_contact_form').find('#contact_id').val(editContact.id);
-	      $('#edit_contact_form').find('#contact_name').val(editContact.name);
-	      $('#edit_contact_form').find('#contact_phone').val(editContact.phone);
-	      $('#edit_contact_form').find('#contact_email').val(editContact.email);
-	      $('#edit_contact_form').find('#contact_avatar').val(editContact.avatar);
+	      $('#edit_blog_form').find('#blog_id').val(editBlog.id);
+	      $('#edit_blog_form').find('#blog_owner').val(editBlog.owner);
+	      $('#edit_blog_form').find('#blog_title').val(editBlog.title);
+	      $('#edit_blog_form').find('#blog_description').val(editBlog.description);
+
 
 	      // focus on the first field with a little delay so it won't mess-
 	      // with modal focus
 	      setTimeout(function() {
-	        $('#edit_contact_form').find('#contact_name').focus();
+	        $('#edit_blog_form').find('#blog_title').focus();
 	      },50);
 
 
 	      // changing back to undefined so it prevent from opening the modal-
 	      // everytime the view is rendering
-	      this.state.editContact.id = undefined;
+	      this.state.editBlog.id = undefined;
 	    }
 
-		console.log("What is all Contacts ::::",this.state.allContacts);
+		console.log("What is all Contacts ::::",this.state.allBlogs);
     return(
       <ul className="collection">
 			<div> <ItemListHeader/> </div>
 
-				<ContactList contactList={this.state.allContacts}/>
-				<EditContactModal editContact={this.state.editContact} />
-				<ContactModal />
+				<BlogList blogList={this.state.allBlogs}/>
+				<EditBlogModal editContact={this.state.editBlog} />
+				<BlogModal />
       </ul>
 
     );
   },
 
 	_onChange: function() {
-    this.setState(getContactsState());
+    this.setState(getBlogsState());
 
   },
-  _initializeContacts: function() {
+  _initializeBlogs: function() {
 
-		CMActions.allContacts();
+		CMActions.allBlogs();
   }
 
 

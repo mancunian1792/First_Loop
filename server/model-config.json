@@ -38,10 +38,6 @@
   "Message": {
     "dataSource": null
   },
-  "Test": {
-    "dataSource": "pipecandym",
-    "public": true
-  },
   "role": {
     "dataSource": "pipecandym",
     "public": true
@@ -57,9 +53,6 @@
   "contact": {
     "dataSource": "TimeBlog",
     "public": true
-  },
-  "user": {
-    "dataSource": "TimeBlog",
-    "public": true
   }
+
 }

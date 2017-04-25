@@ -8,40 +8,40 @@ var CMActions = {
    * Saving new contact
    * @param {string} new contact object
    */
-  create: function(newContact) {
+  create: function(newBlog) {
   	// adding avatar randomly!
 
     AppDispatcher.dispatch({
       actionType: CMConstants.CM_CREATE,
-      name: newContact.name,
-      phone: newContact.phone,
-      email: newContact.email
+      owner: newBlog.owner,
+      title: newBlog.title,
+      description: newBlog.description
 
     });
   },
   /**
    * Opening modal to edit contact
    */
-  edit: function(contact) {
+  edit: function(blog) {
     AppDispatcher.dispatch({
       actionType: CMConstants.CM_EDIT,
-      id: contact.id,
-      name: contact.name,
-      phone: contact.phone,
-      email: contact.email
+      id: blog.id,
+      owner: blog.owner,
+      title: blog.title,
+      description: blog.description
 
     });
   },
   /**
    * Saving edited contact
    */
-  save: function(contact) {
+  save: function(blog) {
     AppDispatcher.dispatch({
       actionType: CMConstants.CM_SAVE,
-      id: contact.id,
-      name: contact.name,
-      phone: contact.phone,
-      email: contact.email
+      id: blog.id,
+      owner: blog.owner,
+      title: blog.title,
+      description: blog.description
 
     });
   },
@@ -61,9 +61,9 @@ var CMActions = {
   *   Getting all the contacts
   */
 
-  allContacts: function(){
+  allBlogs: function(){
     AppDispatcher.dispatch({
-      actionType:CMConstants.GET_ALL_ROLES
+      actionType:CMConstants.GET_ALL_BLOGS
     })
   }
 

@@ -14,6 +14,14 @@
     },
     "description": {
       "type": "string"
+    },
+    "createdat": {
+      "type": "date",
+      "defaultFn": "now"
+    },
+    "updatedat": {
+      "type": "date",
+      "defaultFn": "now"
     }
   },
   "validations": [],

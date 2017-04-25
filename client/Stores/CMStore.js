@@ -7,14 +7,14 @@ import api from "axios";
 
 var CHANGE_EVENT = 'change';
 
-var _contacts = [];
-var _editContact = {};
+var _blogs = [];
+var _editBlog = {};
 
 // will be used to incremental id for contacts
 var currentId = 0;
 
 // saving new contact
-function create(newContact) {
+function create(newBlog) {
   // _contacts[currentId] = {
   //   id: currentId,
   //   name: newContact.name,
@@ -23,62 +23,64 @@ function create(newContact) {
   //   avatar: newContact.avatar
   // };
   // currentId+=1;
-console.log("The new COntact before the api call is :::",newContact)
-var url ='api/contacts';
+console.log("The new COntact before the api call is :::",newBlog)
+var url ='api/blog_entries';
 
-api.post(url,newContact).then(response =>{
+api.post(url,newBlog).then(response =>{
   console.log("::::::::::The contact was inserted successfully::::::::");
-  getAllRoles();
+  allBlogs();
 });
 
 }
 
 // sending edit id to controller view
-function edit(contact) {
-  _editContact = {
-    id: contact.id,
-    name: contact.name,
-    phone: contact.phone,
-    email: contact.email,
-    avatar: contact.avatar
+function edit(blog) {
+  _editBlog = {
+    id: blog.id,
+    owner: blog.owner,
+    title: blog.title,
+    description: blog.description
+
   };
 }
 
 // saving edited contact
-function save(contact) {
-  console.log("What is the contact that i received :::",contact);
+function save(blog) {
+  console.log("What is the contact that i received :::",blog);
+  var currDate= new Date();
   var toPut={
-      name:contact.name,
-      phone:contact.phone,
-      email:contact.email
+      owner:blog.owner,
+      title:blog.title,
+      description:blog.description,
+      updatedat:currDate
 
 
   }
-  var url ='api/contacts/'+contact.id;
+  var url ='api/blog_entries/'+blog.id;
   api.put(url,toPut).then(response =>{
 
     console.log("The value has been updated ::::::");
-    getAllRoles();
+    allBlogs();
   });
 }
 
 // removing contact by user
 function remove(removeId) {
 
-  var url ='api/contacts/'+removeId;
+  var url ='api/blog_entries/'+removeId;
 
   api.delete(url).then(response =>{
       console.log("Deleted successfully");
-      getAllRoles();
+      allBlogs();
   });
 
 }
 
-function getAllRoles(){
-  var url='api/contacts';
+function allBlogs(){
+  var url='api/blog_entries';
    api.get(url).then(response => {
      console.log("The data is :::",response.data);
-      _contacts = response.data;
+      _blogs = response.data;
       CMStore.emitChange();
      });
 
@@ -91,10 +93,10 @@ var CMStore = assign({}, EventEmitter.prototype, {
    * @return {object}
    */
   getEditContact: function() {
-    return _editContact;
+    return _editBlog;
   },
   getAll: function() {
-    return _contacts;
+    return _blogs;
   },
 
   emitChange: function() {
@@ -122,7 +124,7 @@ AppDispatcher.register(function(action) {
 
   switch(action.actionType) {
     case CMConstants.CM_CREATE:
-      text = action.name.trim();
+      text = action.owner.trim();
       if (text !== '') {
         create(action);
 
@@ -146,8 +148,8 @@ AppDispatcher.register(function(action) {
       //CMStore.emitChange();
       break;
 
-    case CMConstants.GET_ALL_ROLES:
-      getAllRoles();
+    case CMConstants.GET_ALL_BLOGS:
+      allBlogs();
 
     default:
       // no op

@@ -5,5 +5,5 @@ module.exports = keyMirror({
   CM_SAVE: null,
   CM_EDIT: null,
   CM_REMOVE: null,
-  GET_ALL_ROLES:null
+  GET_ALL_BLOGS:null
 });
