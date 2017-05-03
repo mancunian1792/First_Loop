@@ -1,0 +1,21 @@
+{
+  "name": "First_Loop",
+  "description": "This is a sample project with react",
+  "main": "server/server.js",
+  "authors": [
+    "mancunian92 <harish@pipecandy.com>"
+  ],
+  "license": "UNLICENSED",
+  "homepage": "https://github.com/mancunian92/First_Loop",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "materialize-clockpicker": "https://github.com/chingyawhao/materialize-clockpicker.git"
+  }
+}

@@ -1,3 +1,6 @@
+var async = require("async")
+
+
 module.exports = function(Message) {
   Message.greet = function(msg, cb) {
     process.nextTick(function() {
@@ -11,6 +14,7 @@ module.exports = function(Message) {
   // what does this  do ?? -- Based on the time it gives out greetingss
 
   Message.customGreet = function(cb){
+    console.log("AM I BEING CALLED");
     const currDate=new Date();
     const currhours=currDate.getHours();
     var msg="Good";
@@ -18,9 +22,31 @@ module.exports = function(Message) {
       msg=msg+'Morning'
     }else if(currhours <18){
       msg=msg+'Afternoon'
-    }else{s
-      msg=msg+'Nights'
+    }else{
+      msg=msg+'Night'
     }
+
+    async.series([
+	    function functionOne(callback) {
+        console.log("msg in first series");
+        		callback(null, 'RESULT OF FUNCTION ONE');
+    	},
+    	function functionTwo(callback) {
+            console.log("msg in second series");
+        		callback(null, 'RESULT OF FUNCTION TWO');
+    	},
+    	function functionThree(callback) {
+        console.log("msg in third series ");
+        		callback(null, 'RESULT OF FUNCTION Three');
+	    }
+], function(err, result) {
+  if(err){
+    console.log(err);
+  }else{
+    console.log(result);
+  }
+
+})
 
     cb(null,msg); // cb is a standard way of defining a callback function.
   }

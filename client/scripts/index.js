@@ -6,10 +6,9 @@ import { Router,Route,IndexRoute , browserhashHistory}  from "react-router"
 // const history=createHashHistory();
 
 import ItemList from "../Components/ItemList"
-import CreateRoleComponent from "../Components/CreateRoleComponent"
 import AppContainer from "../Components/AppContainer"
-
-
+import TimeSheetContainer from "../Components/TimeSheetContainer"
+import UploadCSVContainer from "../Components/UploadCSVContainer"
 
 const reactDiv=document.getElementById('reactRoot');
 // ReactDOM.render(<RoleComponent />,reactDiv);
@@ -19,8 +18,8 @@ const reactDiv=document.getElementById('reactRoot');
        <Route path="/" component={AppContainer}>
             <IndexRoute component={ItemList} />
             <Route path="allItems" component={ItemList}></Route>
-            <Route path="timesheet" component={CreateRoleComponent}></Route>
-
+            <Route path="timesheet" component={TimeSheetContainer}></Route>
+            <Route path= "readCsv" component={UploadCSVContainer}></Route>
 
        </Route>
    </Router>,

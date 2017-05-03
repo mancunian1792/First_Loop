@@ -11,7 +11,7 @@ var EditBlogModal = React.createClass({
 						<h4>Edit TimeBlog</h4>
 						<div className="input-field">
 
-							<input id="blog_owner" type="text" className="validate" />
+							<input id="blog_owner" type="text" className="validate" disabled />
 
 						</div>
 						<div className="input-field">

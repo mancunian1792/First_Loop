@@ -10,6 +10,7 @@ var BlogList = require('./BlogList')
 var CMStore = require('../Stores/CMStore')
 var CMActions = require('../Actions/CMAction')
 var EditBlogModal = require('./EditBlogModal')
+var Blog = require('./Blog')
 
 function getBlogsState() {
   return {
@@ -66,7 +67,7 @@ var ItemList = React.createClass({
       <ul className="collection">
 			<div> <ItemListHeader/> </div>
 
-				<BlogList blogList={this.state.allBlogs}/>
+				<BlogList  blogList={this.state.allBlogs}/>
 				<EditBlogModal editContact={this.state.editBlog} />
 				<BlogModal />
       </ul>

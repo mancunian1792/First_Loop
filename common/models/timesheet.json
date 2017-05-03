@@ -1,0 +1,26 @@
+{
+  "name": "timesheet",
+  "plural": "timesheets",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "startTime": {
+      "type": "date",
+      "defaultFn": "now"
+    },
+    "endTime": {
+      "type": "date",
+      "defaultFn": "now"
+    },
+    "ownername": {
+      "type": "string"
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [],
+  "methods": {}
+}

@@ -35,9 +35,6 @@
     "dataSource": "db",
     "public": false
   },
-  "Message": {
-    "dataSource": null
-  },
   "role": {
     "dataSource": "pipecandym",
     "public": true
@@ -53,6 +50,13 @@
   "contact": {
     "dataSource": "TimeBlog",
     "public": true
+  },
+  "timesheet": {
+    "dataSource": "TimeBlog",
+    "public": true
+  },
+  "message": {
+    "dataSource": "db",
+    "public": true
   }
-
 }

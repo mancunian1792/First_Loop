@@ -14,7 +14,7 @@ return(
             <li><Link to="allItems" activeClassName="active"
             className="side-nav-btn">Home</Link></li>
             <li><Link to = "timesheet" className="side-nav-btn">Timesheet</Link></li>
-
+            <li><Link to = "readCsv" className="side-nav-btn">Upload CSV</Link></li>
     </ul>
   </div>
 </nav>

@@ -4,6 +4,7 @@ var EventEmitter = require('events').EventEmitter;
 var CMConstants = require('../constants/CMConstants');
 var assign = require('object-assign');
 import api from "axios";
+import _ from "underscore";
 
 var CHANGE_EVENT = 'change';
 
@@ -72,6 +73,9 @@ function remove(removeId) {
   api.delete(url).then(response =>{
       console.log("Deleted successfully");
       allBlogs();
+  })
+  .catch(function(e){
+    console.log("Error is ::::",e);
   });
 
 }
@@ -87,7 +91,7 @@ function allBlogs(){
 }
 
 
-var CMStore = assign({}, EventEmitter.prototype, {
+var CMStore = _.extend({}, EventEmitter.prototype, {
   /**
    * Get the entire Contacts.
    * @return {object}
@@ -150,6 +154,8 @@ AppDispatcher.register(function(action) {
 
     case CMConstants.GET_ALL_BLOGS:
       allBlogs();
+
+
 
     default:
       // no op

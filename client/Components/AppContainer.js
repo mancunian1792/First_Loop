@@ -20,7 +20,7 @@ return(
 
      </div>
      </main>
-     <Footer className="row"/>
+
   </div>
 
 );
