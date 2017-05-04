@@ -18,7 +18,7 @@ function createTimeSheet(newTs){
 
 function getAllTimeSheets(){
 
-  
+
   api.get('api/timesheets?filter[order]=startTime%20DESC').then(response => {
       _timesheets = response.data;
       TimeSheetStore.emitChange();
